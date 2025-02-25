@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/your-repo/ansible-playbook.git'
+                git 'https://github.com/Sukanya992/ansible.git'
             }
         }
         stage('Run Ansible Playbook') {
