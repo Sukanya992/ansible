@@ -1,10 +1,13 @@
+---
 - name: Install Nginx
   hosts: web_servers
+  become: yes  # Required for using yum and service modules
   tasks:
     - name: Install Nginx
       yum:
         name: nginx
         state: present
+
     - name: Start and enable Nginx
       service:
         name: nginx
