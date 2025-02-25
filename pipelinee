@@ -8,7 +8,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 ansiblePlaybook(
-                    playbook: 'playbook.yml',
+                    playbook: 'playbook.yaml',
                     inventory: 'inventory.ini',
                     colorized: true
                 )
