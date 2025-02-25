@@ -13,7 +13,6 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     playbook: 'playbook.yaml -i inventory.ini --private_key=$ANSIBLE_PRIVATE_KEY playbook.yaml',
-                    inventory: 'inventory.ini',
                     
                  )
             }
