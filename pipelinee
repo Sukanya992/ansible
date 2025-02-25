@@ -16,7 +16,7 @@ pipeline {
                     inventory: 'inventory.ini',
                     extras: '-e "ansible_ssh_common_args=\'-o StrictHostKeyChecking=no -i /root/.ssh/id_rsa\'"'
                     colorized: true
-                )
+                 )
             }
         }
     }
