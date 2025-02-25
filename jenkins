@@ -4,13 +4,7 @@ pipeline {
             ANSIBLE_PRIVATE_KEY=credentials('ansible')
         }
         stages {
-            stage ("Clone") {
-                steps {
-                                    git branch: 'main', url: 'https://github.com/Sukanya992/ansible.git'
-
-                }
-            }
-            stage ("Run playbook"){
+             stage ("Run playbook"){
                 steps {
                     ansiblePlaybook(
                         playbook: 'git.yaml',
