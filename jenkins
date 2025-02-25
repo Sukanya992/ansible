@@ -12,11 +12,12 @@ pipeline {
             }
             stage ("Run playbook"){
                 steps {
-                    ansiblePlaybook{
+                    ansiblePlaybook(
                         playbook: 'git.yaml'
                         inventory: 'inventory.ini'
                         extra: '--private_key=$ANSIBLE_PRIVATE_KEY -u jenkins'
-                    }
+                    )
+                    
                 }
             }
             
