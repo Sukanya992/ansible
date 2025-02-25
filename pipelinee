@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        ANSIBLE_CONFIG = 'ansible.cfg'
+        ANSIBLE_PRIVATE_KEY= credentionals('ansible')
     }
     stages {
         stage('Clone Repo') {
@@ -12,7 +12,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 ansiblePlaybook(
-                    playbook: 'playbook.yaml',
+                    playbook: 'playbook.yaml -i inventory.ini --private_key=$ANSIBLE_PRIVATE_KEY playbook.yaml',
                     inventory: 'inventory.ini',
                     
                  )
