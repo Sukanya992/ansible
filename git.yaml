@@ -5,5 +5,5 @@
   tasks:
     - name: git install
       yum:
-        name: git
+        name: java
         state: present
