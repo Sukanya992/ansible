@@ -1,1 +1,25 @@
 pipeline {
+    agent any {
+        environment {
+            ANSIBLE_PRIVATE_KEY=credentials('ansible')
+        }
+        stages {
+            stage ("Clone") {
+                steps {
+                                    git branch: 'main', url: 'https://github.com/Sukanya992/ansible.git'
+
+                }
+            }
+            stage ("Run playbook"){
+                steps {
+                    ansiblePlaybook{
+                        playbook: "git.yaml"
+                        inventory: "inventory.ini"
+                        extra: "--private_key=$ANSIBLE_PRIVATE_KEY -u jenkins"
+                    }
+                }
+            }
+            
+        }
+    }
+}
