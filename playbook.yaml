@@ -7,6 +7,7 @@
       yum:
         name: nginx
         state: absent
+        purge: yes
 
     - name: Start and enable Nginx
       service:
